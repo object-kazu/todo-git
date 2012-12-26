@@ -218,7 +218,8 @@ function exchange_item(){
 
     rm temp
     
-    echo "${GREEN_U}""New order""${DEFAULT}"
+    echo ""
+    echo "New order"
     show_list
 
 }
