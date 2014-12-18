@@ -90,6 +90,65 @@ http://momiji-mac.com/wp/2012/08/08/todo-gitの流れを書いてみました/
     exchange items from todo list ...
 
 
+---
+=== 追加項目 ===
+
++  `b` : sub-Feature branch start
+  
++  `m`: sub-Feature branch marge and delete
+  
++  `u`: sub-Feature branch just delete (= un-marge)
+
+---
++  追加項目の説明：sub-Featureという概念を導入した。
+		
+	featureブランチ（test）で作業していて、新しい試したいアイデアを思いついたとする。
+
+	<< 通常 >>
+
+	(git)-[feature/test] > git checkout -b newTest
+
+	(git)-[newTest] >
+
+	<作業する…>
+	
+	<feature branch にマージし、戻りたい場合>
+
+	(git)-[newTest] > git checkout feature/test
+	
+	(git)-[feature/test] > git marge newTest
+	
+	(git)-[feature/test] > git branch -d newTest
+	
+	<< sub-Featureを使う場合 >>
+	
+	(git)-[feature/test] > todo_git.sh -b newTest
+	
+	(git)-[newTest] >
+
+	<作業する…>
+	<feature branch に戻りたい場合>
+
+	(git)-[newTest] > todo_git.sh -m
+	
+	merge and delete branch
+	
+	1 develop
+	
+	2 feature/subTest
+	
+	3 master
+	
+	4 * newTest
+	
+	Select feature branch --> 2   <--戻りたいfeatureを選択する
+	
+	... massage ...
+	
+	 
+	つまり、margeと要らなくなったブランチを削除します。
+
+
 ライセンス
 ----------
 Copyright 2012 momiji-mac.com. All rights reserved.
